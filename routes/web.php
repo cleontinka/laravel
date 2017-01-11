@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/article/{id}', 'ArticleController@oneAction')->where('id','[0-9]+');
