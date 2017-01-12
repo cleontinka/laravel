@@ -61,6 +61,5 @@
     <script src="media/js/jquery-1.11.0.min.js" type="text/javascript"></script>
     <script src="media/js/scripts.js" type="text/javascript"></script>
 @show
-
 </body>
 </html>
