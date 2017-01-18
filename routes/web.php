@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('layouts.base');
 });
 Route::get('/article/{id}', 'ArticleController@oneAction')->where('id','[0-9]+');
