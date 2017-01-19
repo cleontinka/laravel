@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('layouts.base');
 });
+Route::get('/', 'MainController@index')->name('site.main.index');
 Route::get('/article/{id}', 'ArticleController@oneAction')->where('id','[0-9]+');

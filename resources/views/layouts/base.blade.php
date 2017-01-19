@@ -47,8 +47,11 @@
     @section('content')
     @show
 
-    @section('footer')
-    @show
+    @section('footer_links')
+    @endsection
+
+    @section('footer_copyrights')
+    @endsection
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js">
