@@ -4,11 +4,19 @@
     @include('parts.header')
 @endsection
 
+@section('breadcrumbs')
+    @include('parts.breadcrumbs')
+@endsection
+
 @section('content')
+    <!--container start-->
     <div class="container">
-        @section('center-column')
-        @show
+        <div class="row">
+            @section('center-column')
+            @show
+        </div>
     </div>
+    <!--container end-->
 @endsection
 
 @section('footer_links')
