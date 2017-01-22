@@ -9,12 +9,8 @@ class MainController extends Controller
         $posts = Post::orderBy('id', 'DESC')->get();
         return view('layouts.one_column', [
             'page' => 'pages.main',
-            'title' => 'Blogplace :: Блог Дмитрий Юрьев - PHP & JS разработчик, ментор, преподаватель',
-            'content' => '<p>Привет, меня зовут Дмитрий Юрьев и я веб разработчик!</p>',
-            'image' => [
-                'path' => 'assets/images/Me.jpg',
-                'alt' => 'Image'
-            ],
+            'title' => 'My blog',
+            'content' => 'test',
             'activeMenu' => 'main'
         ]);
 
