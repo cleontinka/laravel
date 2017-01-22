@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 Route::get('/', 'MainController@index')->name('site.main.index');
 Route::get('/article/{id}', 'ArticleController@oneAction')->where('id','[0-9]+');
+
+Route::get('/registration.html', 'AuthController@registration')->name('site.auth.registration');
+Route::post('/registration.html', 'AuthController@registrationPost')->name('site.auth.registrationPost');
+Route::get('/login.html', 'AuthController@login')->name('site.auth.login');
+Route::post('/login.html', 'AuthController@loginPost')->name('site.auth.loginPost');
