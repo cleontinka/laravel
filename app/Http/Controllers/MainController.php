@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
+
+use App\Models\Post;
+
 class MainController extends Controller
 {
     public function index()
     {
-
+        $posts = Post::orderBy('id', 'DESC')->get();
         return view('layouts.one_column', [
             'page' => 'pages.main',
             'title' => 'Blogplace :: Блог Дмитрий Юрьев - PHP & JS разработчик, ментор, преподаватель',
