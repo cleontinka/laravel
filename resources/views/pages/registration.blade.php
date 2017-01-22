@@ -19,9 +19,9 @@
                 <input type="text" name="email" class="form-control" placeholder="Email" autofocus="">
 
                 <p> Enter account details below</p>
-                <input type="text" name="phone" class="form-control" placeholder="Phone" autofocus="">
-                <input type="password" class="form-control" placeholder="Password">
-                <input type="password" class="form-control" placeholder="Re-type Password">
+                <input type="text" name="phone" class="form-control" placeholder="8 (999) 123-45-67" autofocus="">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" name="password2" class="form-control" placeholder="Re-type Password">
                 <label class="checkbox">
                     <input type="checkbox" name="is_confirmed" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
                 </label>
