@@ -37,7 +37,9 @@ class AuthController extends Controller
             'created_at' => \Carbon\Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s'),
             'updated_at' => \Carbon\Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s'),
         ]);
-        return 'OK';
+
+            return redirect()->route('site.auth.login')->with('message', trans('auth.registered'));
+
     }
 
     public function login()
@@ -59,7 +61,7 @@ class AuthController extends Controller
             'password' => $this->request->input('password'),
         ], $remember);
         if ($authResult) {
-            return redirect()->intended();
+            return redirect()->intended()->with('message', trans('auth.login'));;
         } else {
             return redirect()->route('site.auth.login')->with('authError', trans('auth.failed'));
         }
