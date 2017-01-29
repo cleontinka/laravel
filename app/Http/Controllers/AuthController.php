@@ -14,7 +14,7 @@ class AuthController extends Controller
             'page' => 'pages.registration',
             'title' => 'Регистрация в блоге',
             'content' => '',
-            'activeMenu' => 'register',
+            'activeMenu' => 'registration',
         ]);
     }
 
@@ -48,5 +48,25 @@ class AuthController extends Controller
             'content' => '',
             'activeMenu' => 'login',
         ]);
+    }
+
+
+    public function loginPost()
+    {
+        $remember = $this->request->input('remember') ? true : false;
+        $authResult = Auth::attempt([
+            'email' => $this->request->input('email'),
+            'password' => $this->request->input('password'),
+        ], $remember);
+        if ($authResult) {
+            return redirect()->intended();
+        } else {
+            return redirect()->route('site.auth.login')->with('authError', trans('auth.failed'));
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('site.auth.login');
     }
 }

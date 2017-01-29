@@ -1,13 +1,19 @@
 <div class="login-bg">
     <div class="container">
         <div class="form-wrapper">
-            <form class="form-signin wow fadeInUp" action="index.html">
+            <form class="form-signin wow fadeInUp" method="POST" action="{{ route('site.auth.loginPost') }}">
+                {{ csrf_field() }}
                 <h2 class="form-signin-heading">sign in now</h2>
                 <div class="login-wrap">
-                    <input type="text" class="form-control" placeholder="User ID" autofocus>
-                    <input type="password" class="form-control" placeholder="Password">
+                    @if (session('authError'))
+                        <ul>
+                            <li>{{ session('authError') }}</li>
+                        </ul>
+                    @endif
+                    <input type="text" class="form-control" placeholder="Ваш Email" name="email">
+                    <input type="password" class="form-control" placeholder="Пароль" name="password">
                     <label class="checkbox">
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me" name="remember"> Remember me
                     <span class="pull-right">
                         <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
 
@@ -44,7 +50,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>Enter your e-mail address below to reset your password.</p>
-                                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                                <input type="text" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
                             </div>
                             <div class="modal-footer">
