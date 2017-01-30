@@ -13,6 +13,7 @@
     <div class="container">
         <div class="row">
             @section('center-column')
+                @include('parts.post')
             @show
         </div>
     </div>

@@ -21,3 +21,4 @@ Route::get('/registration.html', 'AuthController@registration')->name('site.auth
 Route::post('/registration.html', 'AuthController@registrationPost')->name('site.auth.registrationPost');
 Route::get('/login.html', 'AuthController@login')->name('site.auth.login');
 Route::post('/login.html', 'AuthController@loginPost')->name('site.auth.loginPost');
+Route::get('/logout', 'AuthController@logout')->name('site.auth.logout');

@@ -14,7 +14,7 @@ class AuthController extends Controller
             'page' => 'pages.registration',
             'title' => 'Регистрация в блоге',
             'content' => '',
-            'activeMenu' => 'register',
+            'activeMenu' => 'registration',
         ]);
     }
 
@@ -37,7 +37,9 @@ class AuthController extends Controller
             'created_at' => \Carbon\Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s'),
             'updated_at' => \Carbon\Carbon::createFromTimestamp(time())->format('Y-m-d H:i:s'),
         ]);
-        return 'OK';
+
+            return redirect()->route('site.auth.login')->with('message', trans('auth.registered'));
+
     }
 
     public function login()
@@ -48,5 +50,25 @@ class AuthController extends Controller
             'content' => '',
             'activeMenu' => 'login',
         ]);
+    }
+
+
+    public function loginPost()
+    {
+        $remember = $this->request->input('remember') ? true : false;
+        $authResult = Auth::attempt([
+            'email' => $this->request->input('email'),
+            'password' => $this->request->input('password'),
+        ], $remember);
+        if ($authResult) {
+            return redirect()->intended()->with('message', trans('auth.login'));;
+        } else {
+            return redirect()->route('site.auth.login')->with('authError', trans('auth.failed'));
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('site.auth.login');
     }
 }
