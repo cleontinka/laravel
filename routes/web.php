@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('layouts.base');
 });
 Route::get('/', 'MainController@index')->name('site.main.index');
-Route::get('/article/{id}', 'ArticleController@oneAction')->where('id','[0-9]+');
+Route::get('/post/{id}', 'PostController@post')->name('site.post.post')->where('id','[0-9]+');
+Route::get('/post-add', 'PostController@add')->name('admin.post.add');
+Route::post('/post-add', 'PostController@addPost')->name('admin.post.addPost');
 
 Route::get('/registration.html', 'AuthController@registration')->name('site.auth.registration');
 Route::post('/registration.html', 'AuthController@registrationPost')->name('site.auth.registrationPost');

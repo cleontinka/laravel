@@ -4,8 +4,8 @@
         <div class="navbar-header">
             <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
                     type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                <span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">A
-                <span>cme</span></a>
+                <span class="icon-bar"></span></button> <a class="navbar-brand" href="{{ route('site.main.index') }}">My
+                <span>blog</span></a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -22,6 +22,9 @@
                     </li>
                     <li>
                         <a href="{{ route('site.auth.logout') }}">Выход</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.post.add') }}">Добавить статью</a>
                     </li>
                 @else
                     <li class="login">
