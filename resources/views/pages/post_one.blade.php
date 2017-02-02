@@ -83,11 +83,10 @@
             </div>
             <div class="col-lg-10 col-sm-10">
                 <h1>
-                    <a href="blog_detail.html">
                         {{$post->title}}
-                    </a>
                 </h1>
                 {{$post->fulltext}}
+
 
             </div>
         </div>
@@ -271,6 +270,10 @@
                 </li>
             </ul>
         </div>
+
+
+
+
 
     </div>
 </div>

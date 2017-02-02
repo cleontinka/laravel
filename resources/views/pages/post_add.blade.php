@@ -1,41 +1,32 @@
-<div class="login-bg">
-    <div class="container">
-        <div class="form-wrapper">
-            <form class="form-signin wow fadeInUp" method="POST" action="{{ route('admin.post.add') }}">
-                {{ csrf_field() }}
-                <h2 class="form-signin-heading">Добавить статью</h2>
-                <div class="login-wrap">
-
-                    <input type="text" class="form-control" placeholder="Заголовок статьи" name="title" value="{{old('title')}}">
-                    @foreach ($errors->get('title') as $message)
-                        <ul>
-                            <li>{{ $message }}</li>
-                        </ul>
-                    @endforeach
-                    <textarea name="fulltext" class="form-control" rows="15" value="{{old('fulltext')}}">@if (isset($post['fulltext'])){{ trim($post['fulltext']) }}@endif</textarea>
-                    @foreach ($errors->get('fulltext') as $message)
-                        <ul>
-                            <li>{{ $message }}</li>
-                        </ul>
-                    @endforeach
-                    <textarea name="announce" class="form-control" rows="15" value="{{old('announce')}}">@if (isset($post['announce'])){{ trim($post['announce']) }}@endif</textarea>
-                    @foreach ($errors->get('announce') as $message)
-                        <ul>
-                            <li>{{ $message }}</li>
-                        </ul>
-                    @endforeach
-                    <label class="checkbox">
-                        <input type="checkbox" value="remember-me" name="remember"> Remember me
-                    <span class="pull-right">
-                        <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-
-                    </span>
-                    </label>
-                    <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
-
-                </div>
-
-            </form>
-        </div>
+<div class="bs-docs-section mar-b-30">
+    <h1 id="forms" class="page-header">Добавление статьи</h1>
+    <p>Заполните пожалуйста поля формы</p>
+    <div class="bs-example">
+        <form role="form" method="POST" action="{{ route('admin.post.add') }}">
+            {{ csrf_field() }}
+            <div class="form-group @if ($errors->get('title')) has-error @endif">
+                <label for="inputTitle">Заголовок статьи</label>
+                <input type="text" class="form-control" name="title" value="{{old('title')}}">
+                @foreach ($errors->get('title') as $message)
+                    <label class="control-label" for="inputError1">{{ $message }}</label>
+                @endforeach
+            </div>
+            <div class="form-group @if ($errors->get('fulltext')) has-error @endif">
+                <label for="inputFulltext">Полное описание статьи</label>
+                <textarea name="fulltext" class="form-control">{{old('fulltext')}}@if (isset($post['fulltext'])){{ trim($post['fulltext']) }}@endif</textarea>
+                @foreach ($errors->get('fulltext') as $message)
+                    <label class="control-label" for="inputError1">{{ $message }}</label>
+                @endforeach
+            </div>
+            <div class="form-group @if ($errors->get('announce')) has-error @endif">
+                <label for="inputAnnounce">Краткое описание статьи</label>
+                <textarea name="announce" class="form-control">@if (isset($post['announce'])){{ trim($post['announce']) }}@endif {{old('announce')}}</textarea>
+                @foreach ($errors->get('announce') as $message)
+                    <label class="control-label" for="inputError1">{{ $message }}</label>
+                @endforeach
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
     </div>
 </div>
+

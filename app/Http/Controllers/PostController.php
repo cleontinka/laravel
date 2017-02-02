@@ -11,7 +11,6 @@ class PostController extends Controller
     public function post($id)
     {
         $post = Post::find($id);
-        dump($post);
         return view('layouts.secondary', [
             'page' => 'pages.post',
             'title' => $post->title,
