@@ -1881,7 +1881,7 @@ ul#filters > .active > span {
 .form-signin .form-control:focus { z-index: 2 }
 .form-signin input[type="text"],
 .form-signin input[type="password"] {
-    margin-bottom: 15px;
+    margin-top: 15px;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -2970,4 +2970,19 @@ div.header h3{
     position: absolute;
     left:50%;
     top:-4px;
+}
+
+#message {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 15px 0px;
+    background: #3cc6ad;
+    margin-bottom: 40px;
+}
+
+.login-wrap .control-label {
+    color: #f4645f;
+    font-weight: normal;
 }
